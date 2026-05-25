@@ -13,11 +13,17 @@ const pessoasInput = document.querySelector("#pessoas")
 pessoasInput.addEventListener("input", receberQuantidadePessoas)
 
 function receberQuantidadePessoas(evento) {
-    if(evento.target.value === "0") {
-      const paragrafoErro = document.querySelector(".pessoas #erro")
-      paragrafoErro.style.display = "block"
+     const paragrafoErro = document.querySelector(".pessoas #erro")
+     const divErro = document.querySelector(".pessoas .input-box")
 
-      const divErro = document.querySelector(".pessoas .input-box")
+    if(evento.target.value === "0") {
+      paragrafoErro.style.display = "block"
       divErro.setAttribute("id", "erro-div")
-    }
+    } else {
+         paragrafoErro.style.display = "none"
+      divErro.setAttribute("id", "")
+       pessoas = Number(evento.target.value)
+    } 
 }
+
+const botoesGorjeta = document.querySelectorAll(".gorjeta input[type='button']")
